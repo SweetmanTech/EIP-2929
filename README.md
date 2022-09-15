@@ -1,5 +1,9 @@
 This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
+Live: https://eip2929.vercel.app/
+![EIP2929](https://user-images.githubusercontent.com/23249402/190291506-556d3e80-e884-4e80-a18d-8dec93a5e2b6.gif)
+
+
 ## Getting Started
 
 First, run the development server:
