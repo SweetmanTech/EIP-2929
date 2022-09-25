@@ -1,4 +1,5 @@
 import { Box, Button } from "@mui/material";
+import { ethers } from "ethers";
 import { toast } from "react-toastify";
 import { useAccount, useContract, useSigner } from "wagmi";
 import abi from "./abi.json";
@@ -11,6 +12,12 @@ const MintButton = () => {
     contractInterface: abi,
     signerOrProvider: signer,
   });
+
+  const contractTwo = new ethers.Contract(
+    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    abi,
+    signer
+  );
 
   const withdraw = () => {
     if (!address) {
@@ -33,16 +40,28 @@ const MintButton = () => {
       toast.error("Please connect wallet.");
       return;
     }
-    contract
+    contractTwo
       .withdraw({
-        gasLimit: 500000,
+        gasLimit: 70903,
         type: 1,
         accessList: [
           {
-            address: "0x2a2C412c440Dfb0E7cae46EFF581e3E26aFd1Cd0", // admin gnosis safe proxy address
+            address: "0xf29ff96aaea6c9a1fba851f74737f3c069d4f1a9", // core dev address
+          },
+          {
+            address: "0x2a2c412c440dfb0e7cae46eff581e3e26afd1cd0", // admin gnosis safe proxy address
             storageKeys: [
               "0x0000000000000000000000000000000000000000000000000000000000000000",
             ],
+          },
+          {
+            address: "0xd9db270c1b5e3bd161e8c8503c55ceabee709552", // gnosis safe master address
+          },
+          {
+            address: "0xcfbf34d385ea2d5eb947063b67ea226dcda3dc38", // engineer address
+          },
+          {
+            address: "0x86d80d18890f694dc75e78703360085140fa51fd", // liquid split address
           },
         ],
       })
