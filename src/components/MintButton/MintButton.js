@@ -43,25 +43,29 @@ const MintButton = () => {
     contractTwo
       .withdraw({
         gasLimit: 500000,
-        type: 1,
+        gasPrice: ethers.utils.parseUnits("10", "gwei").toString(),
         accessList: [
           {
             address: "0xf29ff96aaea6c9a1fba851f74737f3c069d4f1a9", // core dev address
+            keys: [],
           },
           {
             address: "0x2a2c412c440dfb0e7cae46eff581e3e26afd1cd0", // admin gnosis safe proxy address
-            storageKeys: [
+            keys: [
               "0x0000000000000000000000000000000000000000000000000000000000000000",
             ],
           },
           {
             address: "0xd9db270c1b5e3bd161e8c8503c55ceabee709552", // gnosis safe master address
+            keys: [],
           },
           {
             address: "0xcfbf34d385ea2d5eb947063b67ea226dcda3dc38", // engineer address
+            keys: [],
           },
           {
             address: "0x86d80d18890f694dc75e78703360085140fa51fd", // liquid split address
+            keys: [],
           },
         ],
       })
