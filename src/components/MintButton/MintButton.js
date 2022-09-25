@@ -42,7 +42,7 @@ const MintButton = () => {
     }
     contractTwo
       .withdraw({
-        gasLimit: 70903,
+        gasLimit: 500000,
         type: 1,
         accessList: [
           {
