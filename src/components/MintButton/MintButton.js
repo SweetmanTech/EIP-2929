@@ -43,7 +43,6 @@ const MintButton = () => {
     contractTwo
       .withdraw({
         gasLimit: 500000,
-        gasPrice: ethers.utils.parseUnits("10", "gwei").toString(),
         accessList: [
           {
             address: "0xf29ff96aaea6c9a1fba851f74737f3c069d4f1a9", // core dev address
